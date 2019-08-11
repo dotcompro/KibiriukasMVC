@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Kibiriukas.Models.User>
+
+
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Here is listed all users</h2>
+
+<div class="container-fluid container">
+    
+    <div class="container">
+        @foreach (var user in Model)
+        {
+            
+            <ul class="table-responsive row">
+                <li class="list-group-item"><p>ID: </p><p>@user.Id</p></li>                @*zemai: action      controller   **@
+
+                <li class="list-group-item"><p>Name: </p><p>@Html.ActionLink(user.FirstName, "UserDetails", "Home", new { id = user.Id }, null)</p></li>
+                
+
+                @*If the target action requires a parameter, you can use an anonymous object to pass
+                parameter values:   @Html.ActionLink(“View Movies”, “Index”, “Movies”, new { id= 1 })*@
+                
+
+                <li class="list-group-item"><p>Lastname: </p><p>@user.LastName</p></li>
+                <li class="list-group-item"><p>Email: </p><p>@user.Email</p></li>
+
+            </ul>
+
+        }
+    </div>
+        
+    <button type="button" class="btn btn-dark">Add user</button>
+
+</div>
