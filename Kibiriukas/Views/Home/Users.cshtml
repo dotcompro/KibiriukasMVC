@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Kibiriukas.Models.User>
+﻿@using System.Data.Entity.Core.Metadata.Edm
 
 
 @{
@@ -15,23 +15,34 @@
         {
             
             <ul class="table-responsive row">
-                <li class="list-group-item"><p>ID: </p><p>@user.Id</p></li>                @*zemai: action      controller   **@
+                <li class="border row rrr"><p class="col">ID: </p><p class="col">@user.Id</p></li>@*zemai: action      controller   **@
 
-                <li class="list-group-item"><p>Name: </p><p>@Html.ActionLink(user.FirstName, "UserDetails", "Home", new { id = user.Id }, null)</p></li>
+                <li class="border flex-sm-row row list-group-horizontal-md"><p class="col">Name: </p><p class="col">@*@Html.ActionLink(user.FirstName, "UserDetails", "Home", new { id = user.Id }, null)*@</p></li>
+                                                                                                @*Html.ActionLink(article.Title, 
+                                                                                                "Login",  // <-- ActionMethod
+                                                                                                "Item",   // <-- Controller Name
+                                                                                                new { id = article.ArticleID }, // <-- Route arguments.
+                                                                                                null  // <-- htmlArguments .. which are none
+                                                                                                )*@
+                
+                
+                
+                
+                
+                
+
                 
 
                 @*If the target action requires a parameter, you can use an anonymous object to pass
                 parameter values:   @Html.ActionLink(“View Movies”, “Index”, “Movies”, new { id= 1 })*@
                 
 
-                <li class="list-group-item"><p>Lastname: </p><p>@user.LastName</p></li>
-                <li class="list-group-item"><p>Email: </p><p>@user.Email</p></li>
+                <li class="border flex-sm-row row list-group-horizontal-md"><p class="col">Lastname: </p><p class="col">@*@user.LastName*@</p></li>
+                <li class="border flex-sm-row row list-group-horizontal-md"><p class="col">Email: </p><p class="col">@*@user.Email*@</p></li>
 
             </ul>
 
         }
     </div>
-        
-    <button type="button" class="btn btn-dark">Add user</button>
-
+   
 </div>

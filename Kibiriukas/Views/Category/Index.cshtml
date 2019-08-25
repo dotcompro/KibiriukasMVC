@@ -1,0 +1,35 @@
+﻿
+@using Kibiriukas.Models
+@model Kibiriukas.ViewModels.CategoryCollectionViewModel
+    
+
+@{
+    ViewBag.Title = "Kategorijos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<content>
+    <h1>@ViewBag.Title</h1>
+    <table>
+        
+            @foreach (Category category in Model.CategoryList)
+            {
+                <tr>
+                    <th>@category.CategoryTitle</th>
+                </tr>
+                foreach (Subcategory subcategory in category.Subcategories)
+                {
+                <tr>
+                    <td>@subcategory.SobcategoryTitle</td>
+                    
+                </tr>
+
+                }
+
+            }
+
+    </table>
+    
+
+</content>

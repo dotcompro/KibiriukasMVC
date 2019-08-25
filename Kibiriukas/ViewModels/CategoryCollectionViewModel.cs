@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using Kibiriukas.Models;
 
-
 namespace Kibiriukas.ViewModels
 {
-    public class UsersViewModel
+    public class CategoryCollectionViewModel
     {
-        public List<User> Users { get; set; }
+        public List<Category> CategoryList { get; set; }
+
     }
 }

@@ -1,0 +1,123 @@
+﻿$backgr-color: #343a40;
+$font-hover-color: #e6e6e6;
+$font-color: #999999;
+$layout-breakpoint-small: 992px;
+
+html {
+    font-size: 16px;
+}
+
+body {
+    background-color: #bebebe;
+
+    padding: {
+        top: 50px;
+        bottom: 20px;
+    }
+
+    background: url('/Content/images/berry_bowl.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.body-content {
+    padding: {
+        left: 14px;
+        right: 14px;
+    }
+}
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+input,select,textarea {
+    max-width: 280px;
+}
+
+.navbar-dark > .container {
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-brand {
+    font-size: 1.55rem;
+}
+
+/* Menu style */
+
+ul.navbar-nav {
+    li {
+        margin: 10px;
+
+        a {
+            color: $font-color;
+        }
+
+        a:hover {
+            color: $font-hover-color;
+            text-decoration: none;
+        }
+    }
+}
+
+.category-menu {
+    position: relative;
+    padding: 0 5px;
+    display: block;
+}
+
+.categ-header, .categ-menu-header {
+    color: $backgr-color;
+}
+
+.category-toggler {
+    padding: 0.25rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1;
+    background-color: transparent;
+    color: $font-hover-color;
+    border: 1px solid rgba(230,230,230,.2);
+    border-radius: .25rem;
+}
+
+.fas.fa-angle-down {
+    font-size: 1rem;
+    color: #dddddd;
+    cursor: pointer;
+    padding: .5rem;
+}
+
+.category-group-list {
+   position: absolute;
+   list-style: none;
+   padding: 0;
+   background-color: $backgr-color;
+   display: none;
+   li {
+       height: 42px;
+   }
+}
+
+.group-list {
+    list-style: none;
+    display: block;
+    padding: 0;
+    height: 0; // this increase with jquery
+    li {
+        padding: 5px;
+        visibility: hidden; // this toggle with jquery;
+    }
+}
+
+
+
+/* media queries */
+
+@media (max-width: $layout-breakpoint-small) {
+    .category-menu {
+        margin-top: 10px;
+    }
+}

@@ -176,22 +176,41 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908221518085_InitialModel.cs" />
+    <Compile Include="Migrations\201908221518085_InitialModel.Designer.cs">
+      <DependentUpon>201908221518085_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908230828235_AddCategories.cs" />
+    <Compile Include="Migrations\201908230828235_AddCategories.Designer.cs">
+      <DependentUpon>201908230828235_AddCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908231040157_AddAnotationsToCategAndSub.cs" />
+    <Compile Include="Migrations\201908231040157_AddAnotationsToCategAndSub.Designer.cs">
+      <DependentUpon>201908231040157_AddAnotationsToCategAndSub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908231130247_DeleteCategoryColumns.cs" />
+    <Compile Include="Migrations\201908231130247_DeleteCategoryColumns.Designer.cs">
+      <DependentUpon>201908231130247_DeleteCategoryColumns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908251258579_AddIdSubcategoryModel.cs" />
+    <Compile Include="Migrations\201908251258579_AddIdSubcategoryModel.Designer.cs">
+      <DependentUpon>201908251258579_AddIdSubcategoryModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Movie.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Subcategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\RandomMovieViewModel.cs" />
-    <Compile Include="ViewModels\UsersViewModel.cs" />
+    <Compile Include="ViewModels\CategoryCollectionViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -225,6 +244,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\Style.scss" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -244,7 +264,9 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -278,7 +300,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Movies\Random.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
@@ -289,10 +310,14 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Home\Users.cshtml" />
-    <Content Include="Views\Home\UserDetails.cshtml" />
+    <Content Include="Views\userControl.cshtml" />
+    <Content Include="Views\Shared\_Categories.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Shared\_Navigation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -304,6 +329,23 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201908221518085_InitialModel.resx">
+      <DependentUpon>201908221518085_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908230828235_AddCategories.resx">
+      <DependentUpon>201908230828235_AddCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908231040157_AddAnotationsToCategAndSub.resx">
+      <DependentUpon>201908231040157_AddAnotationsToCategAndSub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908231130247_DeleteCategoryColumns.resx">
+      <DependentUpon>201908231130247_DeleteCategoryColumns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908251258579_AddIdSubcategoryModel.resx">
+      <DependentUpon>201908251258579_AddIdSubcategoryModel.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

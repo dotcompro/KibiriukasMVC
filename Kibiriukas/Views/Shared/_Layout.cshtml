@@ -1,38 +1,19 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kibiriukas - @ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <title>Kibiriukas - @ViewBag.Title</title>    
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
 
-</head>
-<body>
-        <div class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="navbar-toggler-icon"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </div>
-                <div class="navbar-collapse collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        <li>@Html.ActionLink("Users", "Users", "Home")</li>
-                    </ul>
-                    @Html.Partial("_LoginPartial")
-                </div>
-            </div>
-        </div>
+    </head>
+    <body>
+        @Html.Partial("_Navigation");
     <div class="container body-content">
         @RenderBody()
-        <hr />
+        <hr/>
         <footer>
             <p>&copy; @DateTime.Now.Year - Kibiriukas</p>
         </footer>
@@ -41,5 +22,5 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-</body>
+    </body>
 </html>

@@ -24,6 +24,7 @@ namespace Kibiriukas
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/Style.scss",
                       "~/Content/site.css"));
         }
     }
