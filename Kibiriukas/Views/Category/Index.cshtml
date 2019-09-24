@@ -1,8 +1,7 @@
 ﻿
 @using Kibiriukas.Models
 @model Kibiriukas.ViewModels.CategoryCollectionViewModel
-    
-
+   
 @{
     ViewBag.Title = "Kategorijos";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,25 +10,33 @@
 
 <content>
     <h1>@ViewBag.Title</h1>
-    <table>
-        
-            @foreach (Category category in Model.CategoryList)
-            {
-                <tr>
-                    <th>@category.CategoryTitle</th>
-                </tr>
-                foreach (Subcategory subcategory in category.Subcategories)
+
+    <table class="table table-striped">
+        <thead class="categoryTableHeader">
+        @foreach (Category category in Model.CategoryList)
+        {
+            <tr>
+                <th>@Html.ActionLink(category.CategoryTitle, "Details", "Category", new { id = category.CategoryTitle }, null)</th>
+
+                @foreach (Subcategory subcategory in category.Subcategories)
                 {
-                <tr>
-                    <td>@subcategory.SobcategoryTitle</td>
-                    
-                </tr>
-
+                    <td>@Html.ActionLink(subcategory.SubcategoryTitle, "Details", "Category",  new { id = subcategory.SubcategoryTitle }, null)</td>
                 }
-
-            }
-
+            </tr>
+        }
+        </thead>
     </table>
-    
+    <div class="control categoryControl">
+        <h5>Category:</h5>
+        <button class="customButton" value="AddCategory"><span class="buttonPrettifier"></span>@Html.ActionLink("Add", "AddCategory")</button>
+        <button class="customButton" value="EditCategory">@Html.ActionLink("Edit", "EditCategory")<span class="buttonPrettifier"></span></button>
+        <button class="customButton" value="DeleteCategory">@Html.ActionLink("Delete", "DeleteCategory")<span class="buttonPrettifier"></span></button>
+    </div>
 
+    <div class="control subcategoryControl">
+        <h5>Subcategory:</h5>
+        <button class="customButton" value="AddSubcategory">@Html.ActionLink("Add", "AddSubcategory", "Subcategory")<span class="buttonPrettifier"></span></button>
+        <button class="customButton" value="EditSubcategory">@Html.ActionLink("Edit", "EditSubcategory", "Subcategory")<span class="buttonPrettifier"></span></button>
+        <button class="customButton" value="DeleteSubcategory">@Html.ActionLink("Delete", "DeleteSubcategory", "Subcategory")<span class="buttonPrettifier"></span></button>
+    </div>
 </content>

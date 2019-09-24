@@ -11,6 +11,9 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Kibiriukas.Models;
+using System.Net.Mail;
+using System.Configuration;
+using System.Net;
 
 namespace Kibiriukas
 {
@@ -18,8 +21,15 @@ namespace Kibiriukas
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+            SmtpClient client = new SmtpClient();
+            client.Port = 25;
+            client.Host = "smtp.office365.com";
+            client.EnableSsl = true;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.Credentials = new NetworkCredential("dovile.ramanauske@hotmail.com", "");
+            return client.SendMailAsync("dovile.ramanauske@hotmail.com", message.Destination, message.Subject, message.Body);
+
         }
     }
 

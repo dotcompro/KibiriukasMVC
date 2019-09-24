@@ -15,6 +15,19 @@ namespace Kibiriukas
 
             routes.MapMvcAttributeRoutes();
 
+            //routes.MapRoute(
+            //    "GetSubcategoryDetails",
+            //    url: "{controller}/{id}/{action}",
+            //    defaults: new {controller = "Category", action ="GetSubcategoryDetails", id = UrlParameter.Optional}
+            //    );
+
+
+            //routes.MapRoute(
+            //    "GetSubcategories",
+            //    url: "{controller}/{id}",
+            //    defaults: new {controller = "Category", action = "GetSubcategory", id = UrlParameter.Optional}
+            //    );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

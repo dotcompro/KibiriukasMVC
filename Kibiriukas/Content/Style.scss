@@ -1,25 +1,102 @@
-﻿$backgr-color: #343a40;
+﻿$nav-backgr-color: #343a40;
 $font-hover-color: #e6e6e6;
 $font-color: #999999;
-$layout-breakpoint-small: 992px;
+$media-breaking-points: 576px, 768px, 992px, 1200px;
+
+@mixin reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/*html Syntax for action button
+
+<button class="className" value="" >
+    @Html.ActionLink("Link text", "ActionMethod", "Controller")
+    <span class="buttonPrettifier" > </span >
+</button >*/
+
+// or submit button:
+/* <button class="submitButton" type="submit" >
+    <p> Submit</p > 
+    <span class="buttonPrettifier" > </span > 
+</button >*/
+
+@mixin button-style ($backgroundColor, $prettifier, $width, $height) {
+    position: relative;
+    width: $width;
+    height: $height;
+    border: none;
+    background-color: $backgroundColor;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    letter-spacing: 1px;
+    transition-duration: .5s;
+
+    a, p {
+        text-decoration: none;
+        color: #fff;
+        position: relative;
+        z-index: 2;
+        font-size: 1rem;
+
+        @if ($width > 6rem) {
+            font-size: $width*.1;
+        }
+
+        @if ($height <= $width * .1) {
+            font-size: $height*.5;
+        }
+    }
+
+    &:hover {
+        background-color: $prettifier;
+
+        .buttonPrettifier {
+            background-color: $backgroundColor;
+        }
+    }
+
+    .buttonPrettifier {
+        width: $width * .5;
+        height: $width * .5;
+        background: $prettifier;
+        display: block;
+        position: absolute;
+        top: .05rem;
+        right: -.5rem;
+        border-radius: 50%;
+        z-index: 1;
+        transition-duration: .5s;
+    }
+}
+
+/*@mixin linear-gradient($direction, $color-stops, $color-stops) {
+    background: nth(nth($color-stops, $color-stops, 1), 2);
+    background: -webkit-linear-gradient(legacy-direction($direction), $color-stops, $color-stops);
+    background: linear-gradient($direction, $color-stops, $color-stops);
+}*/
+
+
+
 
 html {
     font-size: 16px;
 }
 
 body {
-    background-color: #bebebe;
+    background-color: #fff;
 
     padding: {
         top: 50px;
         bottom: 20px;
     }
 
-    background: url('/Content/images/berry_bowl.jpg') no-repeat center center fixed;
+    /*background: url('/Content/images/berry_bowl.jpg') no-repeat center center fixed; sukurti ir pakeisti background
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
-    -o-background-size: cover;
+    -o-background-size: cover;*/
 }
 
 .body-content {
@@ -63,26 +140,6 @@ ul.navbar-nav {
     }
 }
 
-.category-menu {
-    position: relative;
-    padding: 0 5px;
-    display: block;
-}
-
-.categ-header, .categ-menu-header {
-    color: $backgr-color;
-}
-
-.category-toggler {
-    padding: 0.25rem 0.75rem;
-    font-size: 1rem;
-    line-height: 1;
-    background-color: transparent;
-    color: $font-hover-color;
-    border: 1px solid rgba(230,230,230,.2);
-    border-radius: .25rem;
-}
-
 .fas.fa-angle-down {
     font-size: 1rem;
     color: #dddddd;
@@ -90,34 +147,123 @@ ul.navbar-nav {
     padding: .5rem;
 }
 
-.category-group-list {
-   position: absolute;
-   list-style: none;
-   padding: 0;
-   background-color: $backgr-color;
-   display: none;
-   li {
-       height: 42px;
-   }
+.navbar-logo {
+    background: url(images/Kibiriukas.png) no-repeat center;
+    background-size: contain;
+    display: block;
+    width: 3rem;
+    height: 3rem;
 }
 
-.group-list {
-    list-style: none;
+// category style
+
+.categoryTableHeader {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    tr {
+        display: flex;
+        flex-direction: column;
+        min-width: 100px;
+
+        th {
+            border-top: none;
+
+            a {
+                color: #2ead4b;
+
+                &:hover {
+                    color: #000;
+                }
+            }
+        }
+
+        td {
+            padding: .3rem;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: $font-color;
+
+        &:hover {
+            color: #000;
+        }
+    }
+}
+
+// loading gif style
+
+.loadingWrapper {
+    position:absolute;
+    top: 40%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 1;
+}
+
+.loading {
+    background: url('../resources/pleaseWaitSharpEdges.git') no-repeat;
     display: block;
-    padding: 0;
-    height: 0; // this increase with jquery
-    li {
-        padding: 5px;
-        visibility: hidden; // this toggle with jquery;
+    height: 50px; // galimai pataisyti
+    width: 100%;
+}
+
+.loadingText {
+    padding-bottom: 2em;
+}
+
+.pleaseWaitBackground {
+    background: #e9e9e9;
+    opacity: .5;
+    z-index: 0;
+}
+
+.control {
+    margin-left: 1rem;
+    display: inline-block;
+}
+
+.customButton{
+    
+    @include button-style( #086501, #073504, 6rem, 2rem);   
+}
+.submitButton {
+    @include button-style ($nav-backgr-color, $font-color, 6rem, 2rem);
+
+    margin-left: 15px;
+    p {
+        @include reset-list;
     }
 }
 
 
 
 /* media queries */
-
-@media (max-width: $layout-breakpoint-small) {
+@media only screen and (max-width: nth($media-breaking-points, 1)) {
+  
     .category-menu {
         margin-top: 10px;
     }
+}
+
+@media only screen and (min-width: nth($media-breaking-points, 1)) and (max-width: nth($media-breaking-points, 2)) {
+   
+}
+
+@media only screen and (min-width: nth($media-breaking-points, 2)) and (max-width: nth($media-breaking-points, 3)) {
+    
+}
+
+@media only screen and (min-width: nth($media-breaking-points, 3)) and (max-width: nth($media-breaking-points, 4)) {
+   
+}
+
+@media only screen and (min-width: nth($media-breaking-points, 4)) {
+   
 }

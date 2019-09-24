@@ -1,0 +1,27 @@
+﻿@using Kibiriukas.Models
+@model AddCategoryViewModel
+@{
+    ViewBag.Title = "Add Category page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Category partial view</h2>
+
+<div class="row">
+    <div class="col-md-8">
+        <section class="categoryAddForm">
+            @using (Html.BeginForm("AddCategory", "Category", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(m => m.CategoryTitle, new { @class = "col-md-10 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.CategoryTitle, new { @class = "form-control" })
+                    </div>
+                </div>
+                <button class="submitButton" type="submit"><p>Submit</p><span class="buttonPrettifier"></span></button>
+            }
+        </section>
+    </div>
+</div>
+
+

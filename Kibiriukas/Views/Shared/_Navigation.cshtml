@@ -1,19 +1,22 @@
 ﻿<div class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
+        <div class="navbar-logo">
+        </div>
         <div class="navbar-header">
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="navbar-toggler-icon"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            @Html.ActionLink("Kibiriukas", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("Kibiriukas", "Index", "Home", new {@class = "navbar-brand"})
+
         </div>
         <div class="navbar-collapse collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                @*<li>@Html.Partial("_Categories")</li>*@
-                <li>@Html.ActionLink("Kategorijos", "Index", "Category")</li>
-                <li>@Html.ActionLink("Apie mus", "About", "Home")</li>
+                <li>@Html.ActionLink("Categories", "Index", "Category")</li>
+                <li>@Html.ActionLink("About us", "About", "Home")</li>
                 <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                <li>@Html.ActionLink("Users", "Index", "User")</li>
             </ul>
             @Html.Partial("_LoginPartial")
         </div>

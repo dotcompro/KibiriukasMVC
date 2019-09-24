@@ -7,13 +7,13 @@ namespace Kibiriukas.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddIdSubcategoryModel : IMigrationMetadata
+    public sealed partial class AddExtendedMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddIdSubcategoryModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddExtendedMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "201908251258579_AddIdSubcategoryModel"; }
+            get { return "201909081155193_AddExtendedMigration"; }
         }
         
         string IMigrationMetadata.Source

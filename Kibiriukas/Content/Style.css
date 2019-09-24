@@ -1,0 +1,26 @@
+
+
+ul.row.table-responsive {
+    overflow-x: hidden;
+    margin: 50px 0 50px 0px;
+    background-color: #f3f3ff;
+    padding: 0;
+}
+
+ul.row.table-responsive li {
+    margin: 3px;
+}
+
+/*Menu styles*/
+div.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.fas.fa-angle-down {
+    font-size: 25px;
+    color: #afeeee;
+    cursor: pointer;
+    padding: .5rem;
+}
+

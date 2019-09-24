@@ -1,0 +1,25 @@
+﻿@using Kibiriukas.Models
+@model DeleteSubcategoryViewModel
+
+@{
+    ViewBag.Title = "Only way to do things is to do it";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<content>
+    <h1>ViewBag.Title</h1>
+    <div class="col-md-8">
+        <section class="subcategoryDeletionForm">
+            @using (Html.BeginForm("DeleteSubcategory", "Subcategory", FormMethod.Post, new { @class = "form-horizontal", role="form" }))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(m=>m.Subcategories, new {@class="col-md-10 control-label"})
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.Subcategories, new SelectList(Model.Subcategories, "CategoryId", "SubcategoryTitle"), new {@class="form-control"})
+                    </div>
+                </div>
+
+            }
+        </section>
+    </div>
+</content>
+

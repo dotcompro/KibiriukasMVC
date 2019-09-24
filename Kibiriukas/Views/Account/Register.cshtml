@@ -1,4 +1,6 @@
-﻿@model Kibiriukas.Models.RegisterViewModel
+﻿@*sito viewModel ieskoti reikia AccountViewModels*@
+
+@model Kibiriukas.Models.RegisterViewModel
 @{
     ViewBag.Title = "Register";
 }
@@ -35,7 +37,7 @@
         </div>
     </div>
 }
-
+@RenderPage("~/Views/Helpers/LoadingView.cshtml")
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

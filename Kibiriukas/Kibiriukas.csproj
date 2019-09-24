@@ -179,6 +179,8 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SubcategoryController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -198,18 +200,39 @@
     <Compile Include="Migrations\201908231130247_DeleteCategoryColumns.Designer.cs">
       <DependentUpon>201908231130247_DeleteCategoryColumns.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908251258579_AddIdSubcategoryModel.cs" />
-    <Compile Include="Migrations\201908251258579_AddIdSubcategoryModel.Designer.cs">
-      <DependentUpon>201908251258579_AddIdSubcategoryModel.cs</DependentUpon>
+    <Compile Include="Migrations\201909081155193_AddExtendedMigration.cs" />
+    <Compile Include="Migrations\201909081155193_AddExtendedMigration.Designer.cs">
+      <DependentUpon>201909081155193_AddExtendedMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909081158172_DeleteVirtual.cs" />
+    <Compile Include="Migrations\201909081158172_DeleteVirtual.Designer.cs">
+      <DependentUpon>201909081158172_DeleteVirtual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909081450166_AddUserAndAddDB.cs" />
+    <Compile Include="Migrations\201909081450166_AddUserAndAddDB.Designer.cs">
+      <DependentUpon>201909081450166_AddUserAndAddDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909101212289_ReportingError.cs" />
+    <Compile Include="Migrations\201909101212289_ReportingError.Designer.cs">
+      <DependentUpon>201909101212289_ReportingError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909200522220_RemoveUserAddModel.cs" />
+    <Compile Include="Migrations\201909200522220_RemoveUserAddModel.Designer.cs">
+      <DependentUpon>201909200522220_RemoveUserAddModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\CategoryViewModel.cs" />
+    <Compile Include="Models\CreateUserModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Subcategory.cs" />
+    <Compile Include="Models\UserAddModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AddViewModel.cs" />
     <Compile Include="ViewModels\CategoryCollectionViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -260,6 +283,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\Site.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -309,11 +333,17 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Home\Users.cshtml" />
-    <Content Include="Views\userControl.cshtml" />
-    <Content Include="Views\Shared\_Categories.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
+    <Content Include="Views\Shared\_UserLayout.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Helpers\LoadingView.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\CreateConfirmation.cshtml" />
+    <Content Include="Views\Category\AddCategory.cshtml" />
+    <Content Include="Views\Category\DeleteCategory.cshtml" />
+    <Content Include="Views\Subcategory\AddSubcategory.cshtml" />
+    <Content Include="Views\Subcategory\DeleteSubcategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -343,8 +373,20 @@
     <EmbeddedResource Include="Migrations\201908231130247_DeleteCategoryColumns.resx">
       <DependentUpon>201908231130247_DeleteCategoryColumns.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908251258579_AddIdSubcategoryModel.resx">
-      <DependentUpon>201908251258579_AddIdSubcategoryModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201909081155193_AddExtendedMigration.resx">
+      <DependentUpon>201909081155193_AddExtendedMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909081158172_DeleteVirtual.resx">
+      <DependentUpon>201909081158172_DeleteVirtual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909081450166_AddUserAndAddDB.resx">
+      <DependentUpon>201909081450166_AddUserAndAddDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909101212289_ReportingError.resx">
+      <DependentUpon>201909101212289_ReportingError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909200522220_RemoveUserAddModel.resx">
+      <DependentUpon>201909200522220_RemoveUserAddModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
