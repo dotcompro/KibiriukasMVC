@@ -9,6 +9,7 @@ function ShowProgress() {
 
 //Shows the loading div and turns the whole background enabled-looking
 $(window).on('load', function () {
+    console.log('11');
     setTimeout(function () {
         var loadingBlock = $(".loadingWrapper");
         loadingBlock.hide();
@@ -19,4 +20,13 @@ $(window).on('load', function () {
 
 $('form').on("submit", null, function () {
     ShowProgress();
+});
+
+$(document).ready(function () {
+    console.log("hello");
+    $("#categoryDropDown").change(function () {
+        console.log("changed");
+        //var id = $("#dropDown2").val();
+        //getDropDown2Data(id);
+    });
 });

@@ -68,7 +68,7 @@ namespace Kibiriukas.Controllers
 
             bool categoryAlreadyExists = _context.Categories.Any(x => x.CategoryTitle == categoryTitle);
 
-            if (!categoryAlreadyExists)
+            if (!categoryAlreadyExists && newCategory != null)
             {
                 _context.Categories.Add(newCategory);
                 _context.SaveChanges();
@@ -81,9 +81,7 @@ namespace Kibiriukas.Controllers
         public ActionResult EditCategory()
         {
             return View();
-        }
-
-
+        }     
 
 
 

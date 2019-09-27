@@ -59,7 +59,7 @@ namespace Kibiriukas.Models
 
         [Display(Name = "From Category: ")]
         public List<Category> Categories { get; set; }
-        public short CategoryId { get; set; }
+        public string CategoryId { get; set; }
 
         [Required]
         public bool ConfirmDeletion { get; set; }

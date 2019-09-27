@@ -1,5 +1,6 @@
-﻿@using Kibiriukas.Models
-@model DeleteSubcategoryViewModel
+﻿@using System.ServiceModel.Syndication
+@using Kibiriukas.Models
+@model ManipulateSubcategoryModel
 
 @{
     ViewBag.Title = "Only way to do things is to do it";
@@ -9,12 +10,18 @@
     <h1>ViewBag.Title</h1>
     <div class="col-md-8">
         <section class="subcategoryDeletionForm">
-            @using (Html.BeginForm("DeleteSubcategory", "Subcategory", FormMethod.Post, new { @class = "form-horizontal", role="form" }))
+            @using (Html.BeginForm("DeleteSubcategory", "Subcategory", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
+
                 <div class="form-group">
-                    @Html.LabelFor(m=>m.Subcategories, new {@class="col-md-10 control-label"})
                     <div class="col-md-10">
-                        @Html.DropDownListFor(m => m.Subcategories, new SelectList(Model.Subcategories, "CategoryId", "SubcategoryTitle"), new {@class="form-control"})
+                        @Html.DropDownListFor(m => m.CategoryId, new SelectList(Model.Categories, "CategoryId", "CategoryTitle"), new {@class = "form-control", @id = "categoryDropDown"})
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.SubcategoryId, new SelectList(Model.Subcategories, "SubcategoryId", "SubcategoryTitle"), new {@class = "form-control", @id = "subcategoryDropDown"})
                     </div>
                 </div>
 

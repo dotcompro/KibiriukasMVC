@@ -23,7 +23,7 @@ namespace Kibiriukas.Models
 
         [Required]
         [StringLength(255)]
-        public string CategoryTitle { get; private set; }
+        public string CategoryTitle { get; set; }
 
         //one to many relationship
         public List<Subcategory> Subcategories { get; set; }
