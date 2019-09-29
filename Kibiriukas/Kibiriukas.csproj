@@ -246,11 +246,9 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\CreateUserModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\ManipulateSubcategoryModel.cs" />
     <Compile Include="Models\Subcategory.cs" />
     <Compile Include="Models\UserAddModel.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -566,22 +564,11 @@
     <Content Include="Views\User\CreateConfirmation.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Views\Category\AddCategory.cshtml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Views\Category\DeleteCategory.cshtml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Views\Subcategory\AddSubcategory.cshtml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Views\Subcategory\DeleteSubcategory.cshtml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\images\" />
+    <Folder Include="Views\Subcategory\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">

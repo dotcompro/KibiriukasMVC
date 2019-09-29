@@ -10,15 +10,6 @@ namespace Kibiriukas.Models
 {
     public class Category
     {
-        // idea for viewbag
-        //[HttpPost]
-        //public ActionResult Submit(FormCollection fc)
-        //{
-        //    ViewBag.Id = fc["Id"];
-        //    ViewBag.Name = fc["Name"];
-        //    return View("Index");
-        //}
-
         public int CategoryId { get; set; }
 
         [Required]
@@ -38,4 +29,5 @@ namespace Kibiriukas.Models
 
         }
     }
+
 }
