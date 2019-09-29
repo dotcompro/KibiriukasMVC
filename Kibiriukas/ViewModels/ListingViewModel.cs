@@ -6,8 +6,8 @@ using Kibiriukas.Models;
 
 namespace Kibiriukas.ViewModels
 {
-    public class AddViewModel
+    public class ListingViewModel
     {
-        public List<UserAddModel> UserAddList { get; set; }
+        public List<Listing> Listing { get; set; }
     }
 }

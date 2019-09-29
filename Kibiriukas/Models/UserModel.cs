@@ -10,6 +10,7 @@ namespace Kibiriukas.Models
     {
         [Key]
         public int UserId { get; set; }
+        public string Username { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         //regex for email
@@ -17,10 +18,15 @@ namespace Kibiriukas.Models
         private DateTime DateOfBirth { get; set; }
         //regex for phone number
         public string PhoneNumber { get; set; }
-        public bool IsValidUser { get; set; }
-        
 
-        // reuketu prideti List<Model> UserListing list prie Db user
+        public string StreetName { get; set; }
+        public string StreetName2 { get; set; }
+        public string PostCode { get; set; }
+        public string City { get; set; }
+        public string Country { get; set; }
+        public string HouseNumber { get; set; }
+
+        public List<Listing> Listing { get; set; }
 
     }
 }
