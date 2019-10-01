@@ -25,25 +25,25 @@ namespace Kibiriukas.Controllers
             _context = new ApplicationDbContext();
         }
 
-        public CategoryCollectionViewModel getCategoryCollection()
-        {
-            CategoryCollectionViewModel categoryCollection = new CategoryCollectionViewModel();
-            categoryCollection.CategoryList = new List<Category>();
-            foreach (Category category in _context.Categories.ToList())
-            {
-                category.Subcategories = _context.Subcategories.ToList().Where(x => x.CategoryId == category.CategoryId).ToList();
-                categoryCollection.CategoryList.Add(category);
-            }
-            return categoryCollection;
-        }
+        //public CategoryCollectionViewModel getCategoryCollection()
+        //{
+        //    //CategoryCollectionViewModel categoryCollection = new CategoryCollectionViewModel();
+        //    //categoryCollection.CategoryList = new List<Category>();
+        //    //foreach (Category category in _context.Categories.ToList())
+        //    //{
+        //    //    category.Subcategories = _context.Subcategories.ToList().Where(x => x.CategoryId == category.CategoryId).ToList();
+        //    //    categoryCollection.CategoryList.Add(category);
+        //    //}
+        //    //return categoryCollection;
+        //}
 
-        // GET: Category
-        [Route("Category")]
-        public ActionResult Index()
-        {
-            CategoryCollectionViewModel categoryCollection = getCategoryCollection();
-            return View(categoryCollection);
-        }
+        //// GET: Category
+        //[Route("Category")]
+        //public ActionResult Index()
+        //{
+        //    CategoryCollectionViewModel categoryCollection = getCategoryCollection();
+        //    return View(categoryCollection);
+        //}
 
         public ActionResult Details(string Id)
         {

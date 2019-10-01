@@ -9,10 +9,9 @@ namespace Kibiriukas.Models
     public class Listing
     {
         [Key]
-        public string ListingId { get; set; }
+        public int ListingId { get; set; }
         public int UserId { get; set; }
         public short SubcategoryId { get; set; }
-
         public string Title { get; set; }
         public string Description { get; set; }
         public float Price { get; set; }

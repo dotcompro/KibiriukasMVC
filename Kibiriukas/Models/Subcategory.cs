@@ -18,5 +18,4 @@ namespace Kibiriukas.Models
         public int CategoryId { get; set; }
         public Category category { get; set; }
     }
-
 }

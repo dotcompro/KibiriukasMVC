@@ -22,11 +22,12 @@ namespace Kibiriukas
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/Site1.js",
+                      "~/Scripts/all.min.js",
                       "~/Scripts/Site.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      //"~/Content/Style.scss",
+                      "~/Content/all.min.css",
                       "~/Content/Site.css"));
         }
     }

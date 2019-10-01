@@ -1,0 +1,37 @@
+﻿@model Kibiriukas.Models.User
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="containerWrapper">
+    <div class="leftContainer">
+        @if (Model.ProfilePictures == null)
+        {
+            <img src="~/Content/images/blankProfilePic.png" class="profilePicture">
+        }
+        else
+        {
+
+        }
+        @Html.ActionLink("Upload photo", "UploadPhoto", "Profile", new { id = Model.UserId }, new { @class = "uploadPhotoLink" })
+        <hr class="dividerLine">
+
+        <a class="ReviewContainer" href="#">
+            <i class="far fa-comments commentIcon"></i>
+            <p class="reviewLabel">@(Model.OwnReviews == null ? 0 : Model.OwnReviews.Count) reviews</p>
+        </a>
+
+
+    </div>
+    <div class="rightContainer">
+        <h2> Hi, @Model.FirstName @Model.LastName!</h2>
+        <p>On Kibiriukas since @Model.UserCreated.Year</p>
+        @Html.ActionLink("Edit Profile", "EditProfile", "Profile", new { id = Model.UserId }, null)
+
+        @if (Model.Listings == null)
+        {
+            <p>User has no listings.</p>
+        }
+    </div>
+</div>

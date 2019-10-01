@@ -79,6 +79,14 @@ namespace Kibiriukas.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [DataType(DataType.Text)]
+        [Display(Name= "Your first name")]
+        [Required]
+        public string FirstName { get; set; }
+        [DataType(DataType.Text)]
+        [Display(Name="Your last name")]
+        public string LastName { get; set; }
     }
 
     public class ResetPasswordViewModel

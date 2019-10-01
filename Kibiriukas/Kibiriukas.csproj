@@ -197,6 +197,7 @@
     <Compile Include="Controllers\ManageController.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SubcategoryController.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
@@ -247,16 +248,48 @@
     <Compile Include="Migrations\201909291031348_AddListingModel_editUserModel.Designer.cs">
       <DependentUpon>201909291031348_AddListingModel_editUserModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909291102562_add-migration ts.cs" />
+    <Compile Include="Migrations\201909291102562_add-migration ts.Designer.cs">
+      <DependentUpon>201909291102562_add-migration ts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909291105593_addedContentColumn.cs" />
+    <Compile Include="Migrations\201909291105593_addedContentColumn.Designer.cs">
+      <DependentUpon>201909291105593_addedContentColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909291146490_changesToUserModelTable.cs" />
+    <Compile Include="Migrations\201909291146490_changesToUserModelTable.Designer.cs">
+      <DependentUpon>201909291146490_changesToUserModelTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909291329507_test.cs" />
+    <Compile Include="Migrations\201909291329507_test.Designer.cs">
+      <DependentUpon>201909291329507_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909291418142_addedPropertyUserCreatedToUserModel.cs" />
+    <Compile Include="Migrations\201909291418142_addedPropertyUserCreatedToUserModel.Designer.cs">
+      <DependentUpon>201909291418142_addedPropertyUserCreatedToUserModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909291546481_test1.cs" />
+    <Compile Include="Migrations\201909291546481_test1.Designer.cs">
+      <DependentUpon>201909291546481_test1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909301318342_addedLanguageTables.cs" />
+    <Compile Include="Migrations\201909301318342_addedLanguageTables.Designer.cs">
+      <DependentUpon>201909301318342_addedLanguageTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CreateUserModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Language.cs" />
     <Compile Include="Models\Listing.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ProfilePicture.cs" />
+    <Compile Include="Models\Review.cs" />
     <Compile Include="Models\Subcategory.cs" />
     <Compile Include="Models\UserAddModel.cs" />
-    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserLanguage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
@@ -267,6 +300,7 @@
     <Compile Include="ViewModels\ListingViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\all.min.css" />
     <Content Include="Content\bootstrap-grid.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -285,6 +319,12 @@
     <Content Include="Content\bootstrap.min.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\images\blankProfilePic.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\conversation.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="favicon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -294,6 +334,7 @@
     <Content Include="Content\Site.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\all.min.js" />
     <Content Include="Scripts\bootstrap.bundle.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -567,10 +608,10 @@
     <Content Include="Views\User\CreateConfirmation.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Views\Profile\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\images\" />
     <Folder Include="Views\Subcategory\" />
   </ItemGroup>
   <ItemGroup>
@@ -622,6 +663,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909291031348_AddListingModel_editUserModel.resx">
       <DependentUpon>201909291031348_AddListingModel_editUserModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909291102562_add-migration ts.resx">
+      <DependentUpon>201909291102562_add-migration ts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909291105593_addedContentColumn.resx">
+      <DependentUpon>201909291105593_addedContentColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909291146490_changesToUserModelTable.resx">
+      <DependentUpon>201909291146490_changesToUserModelTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909291329507_test.resx">
+      <DependentUpon>201909291329507_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909291418142_addedPropertyUserCreatedToUserModel.resx">
+      <DependentUpon>201909291418142_addedPropertyUserCreatedToUserModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909291546481_test1.resx">
+      <DependentUpon>201909291546481_test1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909301318342_addedLanguageTables.resx">
+      <DependentUpon>201909301318342_addedLanguageTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

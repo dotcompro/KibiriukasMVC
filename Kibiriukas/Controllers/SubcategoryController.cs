@@ -21,12 +21,12 @@ namespace Kibiriukas.Controllers
         }
 
 
-        [HttpPost]
-        public ActionResult GetDropDown2Data(int categoryId)
-        {
-            List<Subcategory> subcategoryList = new List<Subcategory>();
-            subcategoryList = _context.Subcategories.Where(x => x.CategoryId == categoryId).ToList();
-            return Json(subcategoryList, JsonRequestBehavior.AllowGet);
-        }
+        //[HttpPost]
+        //public ActionResult GetDropDown2Data(int categoryId)
+        //{
+        //    //List<Subcategory> subcategoryList = new List<Subcategory>();
+        //    //subcategoryList = _context.Subcategories.Where(x => x.CategoryId == categoryId).ToList();
+        //    //return Json(subcategoryList, JsonRequestBehavior.AllowGet);
+        //}
     }
 }

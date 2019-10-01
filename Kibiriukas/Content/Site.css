@@ -8,13 +8,9 @@
     <p> Submit</p > 
     <span class="buttonPrettifier" > </span > 
 </button >*/
-/*@mixin linear-gradient($direction, $color-stops, $color-stops) {
-    background: nth(nth($color-stops, $color-stops, 1), 2);
-    background: -webkit-linear-gradient(legacy-direction($direction), $color-stops, $color-stops);
-    background: linear-gradient($direction, $color-stops, $color-stops);
-}*/
 html {
-  font-size: 16px; }
+  font-size: 16px;
+}
 
 body {
   background-color: #fff;
@@ -24,69 +20,88 @@ body {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-  -o-background-size: cover;*/ }
+  -o-background-size: cover;*/
+}
 
 .body-content {
   padding-left: 14px;
-  padding-right: 14px; }
+  padding-right: 14px;
+}
 
 .dl-horizontal dt {
-  white-space: normal; }
+  white-space: normal;
+}
 
 input, select, textarea {
-  max-width: 280px; }
+  max-width: 280px;
+}
 
 .navbar-dark > .container {
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+}
 
 .navbar-brand {
-  font-size: 1.55rem; }
+  font-size: 1.55rem;
+}
 
 /* Menu style */
 ul.navbar-nav li {
-  margin: 10px; }
-  ul.navbar-nav li a {
-    color: #999999; }
-  ul.navbar-nav li a:hover {
-    color: #e6e6e6;
-    text-decoration: none; }
+  margin: 10px;
+}
+ul.navbar-nav li a {
+  color: #999999;
+}
+ul.navbar-nav li a:hover {
+  color: #e6e6e6;
+  text-decoration: none;
+}
 
 .fas.fa-angle-down {
   font-size: 1rem;
   color: #dddddd;
   cursor: pointer;
-  padding: .5rem; }
+  padding: 0.5rem;
+}
 
 .navbar-logo {
   background: url(images/Kibiriukas.png) no-repeat center;
   background-size: contain;
   display: block;
   width: 3rem;
-  height: 3rem; }
+  height: 3rem;
+}
 
 .categoryTableHeader {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between; }
-  .categoryTableHeader tr {
-    display: flex;
-    flex-direction: column;
-    min-width: 100px; }
-    .categoryTableHeader tr th {
-      border-top: none; }
-      .categoryTableHeader tr th a {
-        color: #2ead4b; }
-        .categoryTableHeader tr th a:hover {
-          color: #000; }
-    .categoryTableHeader tr td {
-      padding: .3rem; }
-  .categoryTableHeader a {
-    text-decoration: none;
-    color: #999999; }
-    .categoryTableHeader a:hover {
-      color: #000; }
+  justify-content: space-between;
+}
+.categoryTableHeader tr {
+  display: flex;
+  flex-direction: column;
+  min-width: 100px;
+}
+.categoryTableHeader tr th {
+  border-top: none;
+}
+.categoryTableHeader tr th a {
+  color: #2ead4b;
+}
+.categoryTableHeader tr th a:hover {
+  color: #000;
+}
+.categoryTableHeader tr td {
+  padding: 0.3rem;
+}
+.categoryTableHeader a {
+  text-decoration: none;
+  color: #999999;
+}
+.categoryTableHeader a:hover {
+  color: #000;
+}
 
 .loadingWrapper {
   position: absolute;
@@ -95,25 +110,30 @@ ul.navbar-nav li {
   width: 100%;
   height: 100%;
   display: none;
-  z-index: 1; }
+  z-index: 1;
+}
 
 .loading {
   background: url("../resources/pleaseWaitSharpEdges.git") no-repeat;
   display: block;
   height: 50px;
-  width: 100%; }
+  width: 100%;
+}
 
 .loadingText {
-  padding-bottom: 2em; }
+  padding-bottom: 2em;
+}
 
 .pleaseWaitBackground {
   background: #e9e9e9;
-  opacity: .5;
-  z-index: 0; }
+  opacity: 0.5;
+  z-index: 0;
+}
 
 .control {
   margin-left: 1rem;
-  display: inline-block; }
+  display: inline-block;
+}
 
 .customButton {
   position: relative;
@@ -124,28 +144,33 @@ ul.navbar-nav li {
   border-radius: 0.25rem;
   overflow: hidden;
   letter-spacing: 1px;
-  transition-duration: .5s; }
-  .customButton a, .customButton p {
-    text-decoration: none;
-    color: #fff;
-    position: relative;
-    z-index: 2;
-    font-size: 1rem; }
-  .customButton:hover {
-    background-color: #073504; }
-    .customButton:hover .buttonPrettifier {
-      background-color: #086501; }
-  .customButton .buttonPrettifier {
-    width: 3rem;
-    height: 3rem;
-    background: #073504;
-    display: block;
-    position: absolute;
-    top: .05rem;
-    right: -.5rem;
-    border-radius: 50%;
-    z-index: 1;
-    transition-duration: .5s; }
+  transition-duration: 0.5s;
+}
+.customButton a, .customButton p {
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+  font-size: 1rem;
+}
+.customButton:hover {
+  background-color: #073504;
+}
+.customButton:hover .buttonPrettifier {
+  background-color: #086501;
+}
+.customButton .buttonPrettifier {
+  width: 3rem;
+  height: 3rem;
+  background: #073504;
+  display: block;
+  position: absolute;
+  top: 0.05rem;
+  right: -0.5rem;
+  border-radius: 50%;
+  z-index: 1;
+  transition-duration: 0.5s;
+}
 
 .submitButton {
   position: relative;
@@ -156,37 +181,105 @@ ul.navbar-nav li {
   border-radius: 0.25rem;
   overflow: hidden;
   letter-spacing: 1px;
-  transition-duration: .5s;
-  margin-left: 15px; }
-  .submitButton a, .submitButton p {
-    text-decoration: none;
-    color: #fff;
-    position: relative;
-    z-index: 2;
-    font-size: 1rem; }
-  .submitButton:hover {
-    background-color: #999999; }
-    .submitButton:hover .buttonPrettifier {
-      background-color: #343a40; }
-  .submitButton .buttonPrettifier {
-    width: 3rem;
-    height: 3rem;
-    background: #999999;
-    display: block;
-    position: absolute;
-    top: .05rem;
-    right: -.5rem;
-    border-radius: 50%;
-    z-index: 1;
-    transition-duration: .5s; }
-  .submitButton p {
-    margin: 0;
-    padding: 0;
-    list-style: none; }
+  transition-duration: 0.5s;
+  margin-left: 15px;
+}
+.submitButton a, .submitButton p {
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+  font-size: 1rem;
+}
+.submitButton:hover {
+  background-color: #999999;
+}
+.submitButton:hover .buttonPrettifier {
+  background-color: #343a40;
+}
+.submitButton .buttonPrettifier {
+  width: 3rem;
+  height: 3rem;
+  background: #999999;
+  display: block;
+  position: absolute;
+  top: 0.05rem;
+  right: -0.5rem;
+  border-radius: 50%;
+  z-index: 1;
+  transition-duration: 0.5s;
+}
+.submitButton p {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
 /* media queries */
 @media only screen and (max-width: 576px) {
   .category-menu {
-    margin-top: 10px; } }
+    margin-top: 10px;
+  }
+}
+.containerWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 2em;
+}
+.containerWrapper .leftContainer {
+  width: 35%;
+  border: 1px solid #e4e4e4;
+  padding: 0.5em;
+}
+.containerWrapper .leftContainer .profilePicture {
+  border-radius: 50%;
+  width: 13em;
+  display: block;
+  margin: auto;
+}
+.containerWrapper .leftContainer .uploadPhotoLink {
+  color: #008489;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+}
+.containerWrapper .leftContainer .uploadPhotoLink:hover {
+  color: #008489;
+}
+.containerWrapper .leftContainer .dividerLine {
+  border-top: 1px solid #e4e4e4;
+  width: 85%;
+}
+.containerWrapper .leftContainer .ReviewContainer {
+  color: #999999;
+  display: flex;
+  padding-left: 1.9em;
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+.containerWrapper .leftContainer .ReviewContainer:hover {
+  color: #000;
+  cursor: pointer;
+  text-decoration: underline solid #008489;
+}
+.containerWrapper .leftContainer .ReviewContainer:hover p {
+  color: #008489;
+}
+.containerWrapper .leftContainer .ReviewContainer i {
+  font-size: x-large;
+}
+.containerWrapper .leftContainer .ReviewContainer p {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-left: 0.6em;
+}
+.containerWrapper .rightContainer {
+  width: 55%;
+  border: 1px solid #e4e4e4;
+  padding: 0.5em;
+}
 
 /*# sourceMappingURL=Site.css.map */

@@ -2,6 +2,8 @@
 $font-hover-color: #e6e6e6;
 $font-color: #999999;
 $media-breaking-points: 576px, 768px, 992px, 1200px;
+$softGray: #e4e4e4;
+$linkGreen: #008489;
 
 @mixin reset-list {
     margin: 0;
@@ -70,14 +72,6 @@ $media-breaking-points: 576px, 768px, 992px, 1200px;
         transition-duration: .5s;
     }
 }
-
-/*@mixin linear-gradient($direction, $color-stops, $color-stops) {
-    background: nth(nth($color-stops, $color-stops, 1), 2);
-    background: -webkit-linear-gradient(legacy-direction($direction), $color-stops, $color-stops);
-    background: linear-gradient($direction, $color-stops, $color-stops);
-}*/
-
-
 
 
 html {
@@ -266,4 +260,78 @@ ul.navbar-nav {
 
 @media only screen and (min-width: nth($media-breaking-points, 4)) {
    
+}
+
+@mixin noStyleLink {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+}
+
+.containerWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 2em;
+
+    .leftContainer {
+        width: 35%;
+        border: 1px solid $softGray;
+        padding: 0.5em;
+
+        .profilePicture {
+            border-radius: 50%;
+            width: 13em;
+            display: block;
+            margin: auto;
+        }
+
+        .uploadPhotoLink {
+            color: $linkGreen;
+            font-weight: bold;
+            display: block;
+            text-align: center;
+        }
+
+        .uploadPhotoLink:hover {
+            color: $linkGreen;
+        }
+
+        .dividerLine {
+            border-top: 1px solid $softGray;
+            width: 85%;
+        }
+
+        .ReviewContainer {
+            color: $font-color;
+            display: flex;
+            padding-left: 1.9em;
+            @include noStyleLink;
+            
+
+            &:hover {
+                color: #000;
+                cursor: pointer;
+                text-decoration: underline solid $linkGreen;
+                p {
+                    color: $linkGreen;
+                }
+            }
+
+            i {
+                font-size: x-large;
+            }
+
+            p {
+                @include reset-list;
+                margin-left: 0.6em;
+            }
+        }
+    }
+
+    .rightContainer {
+        width: 55%;
+        border: 1px solid $softGray;
+        padding: 0.5em;
+    }
 }

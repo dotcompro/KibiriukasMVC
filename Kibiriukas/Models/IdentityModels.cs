@@ -22,16 +22,16 @@ namespace Kibiriukas.Models
     // this is a gateway to the database. Migration searches first in ApplicationDbContext class for changes
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Subcategory> Subcategories { get; set; }
-        public DbSet<UserModel> User { get; set; }
+        public DbSet<Category> Category { get; set; }
+        public DbSet<Subcategory> Subcategory { get; set; }
+        public DbSet<User> User { get; set; }
         public DbSet<Listing> Listing { get; set; }
-
-
+        public DbSet<ProfilePicture> ProfilePicture { get; set; }
+        public DbSet<Language> Language { get; set; }
+        public DbSet<UserLanguage> UserLanguage { get; set; }
         public ApplicationDbContext() : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
