@@ -1,0 +1,36 @@
+﻿@model Kibiriukas.ViewModels.ProfileViewModel
+@*@using (Html.BeginForm("SaveProfile", "Profile", FormMethod.Post, new { enctype = "multipart/form-data", onsubmit = "return validateEditProfileForm()" } ))*@
+@using (Html.BeginForm("SaveProfile", "Profile", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.user.UserId)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.user.SelfIntroduction)
+        @Html.TextAreaFor(m => m.user.SelfIntroduction, new { @class = "form-control", @id = "selfIntroductionTextArea" })
+        @Html.ValidationMessageFor(m => m.user.SelfIntroduction, "", new { @class = "text-danger selfIntroValidationMsg" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.user.City)
+        @Html.TextBoxFor(model => model.user.City, htmlAttributes: new { @class = "form-control locationsInput" })
+        @Html.ValidationMessageFor(model => model.user.City, "City not found. Try a neighbouring one.", new { @class = "text-danger cityValidationMsg" })
+    </div>
+
+    Html.RenderPartial("Partials\\LanguageModal", Model);
+
+    <div class="clearfix languageBlock">
+        <div id="languageItems">
+            @for (int i = 0; i < Model.user.UserLanguages.Count; i++)
+            {
+
+                Html.RenderPartial("Partials\\UserLanguageRow", Model.user.UserLanguages[i], new ViewDataDictionary(Html.ViewData)
+                {
+                    TemplateInfo = new TemplateInfo { HtmlFieldPrefix = Html.NameFor(m => m.user.UserLanguages[i]).ToString() }
+                });
+            }
+        </div>
+        <a class="addLanguageRow">Add more languages</a>
+    </div>
+    <button name="submit" type="submit" class="saveEditProfileBtn" value="save">Save</button>
+    <button type="button" class="cancelEditProfile" value="cancel">Cancel</button>
+}

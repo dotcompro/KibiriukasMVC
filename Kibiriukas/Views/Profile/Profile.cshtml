@@ -1,4 +1,5 @@
-﻿@model Kibiriukas.Models.User
+﻿@using System.Linq
+@model Kibiriukas.ViewModels.ProfileViewModel
 @{
     ViewBag.Title = "Profile";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,7 +7,7 @@
 
 <div class="containerWrapper">
     <div class="leftContainer">
-        @if (Model.ProfilePictures == null)
+        @if (Model.user.ProfilePictures == null)
         {
             <img src="~/Content/images/blankProfilePic.png" class="profilePicture">
         }
@@ -14,24 +15,33 @@
         {
 
         }
-        @Html.ActionLink("Upload photo", "UploadPhoto", "Profile", new { id = Model.UserId }, new { @class = "uploadPhotoLink" })
+        @Html.ActionLink("Upload photo", "UploadPhoto", "Profile", new { id = Model.user.UserId }, new { @class = "uploadPhotoLink" })
+
         <hr class="dividerLine">
-
         <a class="ReviewContainer" href="#">
-            <i class="far fa-comments commentIcon"></i>
-            <p class="reviewLabel">@(Model.OwnReviews == null ? 0 : Model.OwnReviews.Count) reviews</p>
+            <i class="fa fa-comments commentIcon"></i>
+            <p class="reviewLabel">@(Model.user.OwnReviews == null ? 0 : Model.user.OwnReviews.Count) reviews</p>
         </a>
-
-
     </div>
     <div class="rightContainer">
-        <h2> Hi, @Model.FirstName @Model.LastName!</h2>
-        <p>On Kibiriukas since @Model.UserCreated.Year</p>
-        @Html.ActionLink("Edit Profile", "EditProfile", "Profile", new { id = Model.UserId }, null)
+        <h2> Hi, @Model.user.FirstName @Model.user.LastName!</h2>
 
-        @if (Model.Listings == null)
-        {
-            <p>User has no listings.</p>
-        }
+        <div class="ProfileInfoBlock">
+            <p>On Kibiriukas since @Model.user.UserCreated.Year <span class="editProfileInactive divider">·</span></p>&nbsp;
+
+            <a class="showProfile editProfileInactive">Edit Profile</a>
+            @Html.Hidden("ModelValid", Model.modelIsValid, new { @class = Model.modelIsValid ? "modelValidGetter valid" : "modelValidGetter invalid" })
+            <div id="editProfileDiv" class="@(Model.modelIsValid ? "editProfileInactive" : "editProfileActive")">
+                @Html.Partial("Partials\\EditProfile", Model)
+            </div>
+        </div>
+
+        <div class="listingBlock">
+            @if (Model.user.Listings == null)
+            {
+                <p>User has no listings ·&nbsp;</p>
+                @Html.ActionLink("Add Listing", "EditProfile", "Profile", new { id = Model.user.UserId }, null)
+            }
+        </div>
     </div>
 </div>

@@ -1,27 +1,24 @@
 ﻿<!DOCTYPE html>
 <script type="text/javascript">
-
-    var yourApp = yourApp || {};
-    yourApp.Urls = yourApp.Urls || {};
-    yourApp.Urls.baseUrl = '@Url.Content("~")';
-    yourApp.Urls.editUserUrl= '@Url.Action("Edit","User")';
-
+    var Kibiriukas = Kibiriukas || {};
+    Kibiriukas.Urls = Kibiriukas.Urls || {};
+    Kibiriukas.Urls.baseUrl = '@Url.Content("~")';
+    Kibiriukas.Urls.editUserUrl= '@Url.Action("Edit","User")';
 </script>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <title>Kibiriukas - @ViewBag.Title</title>    
+    <title>Kibiriukas - @ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
 <body>
-        @Html.Partial("_Navigation")
+    @Html.Partial("_Navigation")
     <div class="container body-content">
         @RenderBody()
-        <hr/>
+        <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - Kibiriukas</p>
         </footer>
@@ -29,6 +26,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/javascript")
     @RenderSection("scripts", required: false)
-    </body>
+</body>
 </html>

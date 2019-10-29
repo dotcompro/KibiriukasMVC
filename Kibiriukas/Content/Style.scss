@@ -76,6 +76,10 @@ $linkGreen: #008489;
 
 html {
     font-size: 16px;
+
+    .ui-helper-hidden-accessible {
+        display: none;
+    }
 }
 
 body {
@@ -86,6 +90,14 @@ body {
         bottom: 20px;
     }
 
+    .ui-autocomplete {
+        background-color: white;
+
+        li {
+            list-style-type: none;
+            cursor: pointer;
+        }
+    }
     /*background: url('/Content/images/berry_bowl.jpg') no-repeat center center fixed; sukurti ir pakeisti background
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -104,7 +116,7 @@ body {
     white-space: normal;
 }
 
-input,select,textarea {
+input, select, textarea {
     max-width: 280px;
 }
 
@@ -192,7 +204,7 @@ ul.navbar-nav {
 // loading gif style
 
 .loadingWrapper {
-    position:absolute;
+    position: absolute;
     top: 40%;
     left: 50%;
     width: 100%;
@@ -223,14 +235,15 @@ ul.navbar-nav {
     display: inline-block;
 }
 
-.customButton{
-    
-    @include button-style( #086501, #073504, 6rem, 2rem);   
+.customButton {
+
+    @include button-style( #086501, #073504, 6rem, 2rem);
 }
+
 .submitButton {
     @include button-style ($nav-backgr-color, $font-color, 6rem, 2rem);
-
     margin-left: 15px;
+
     p {
         @include reset-list;
     }
@@ -240,32 +253,71 @@ ul.navbar-nav {
 
 /* media queries */
 @media only screen and (max-width: nth($media-breaking-points, 1)) {
-  
+
     .category-menu {
         margin-top: 10px;
     }
 }
 
 @media only screen and (min-width: nth($media-breaking-points, 1)) and (max-width: nth($media-breaking-points, 2)) {
-   
 }
 
 @media only screen and (min-width: nth($media-breaking-points, 2)) and (max-width: nth($media-breaking-points, 3)) {
-    
 }
 
 @media only screen and (min-width: nth($media-breaking-points, 3)) and (max-width: nth($media-breaking-points, 4)) {
-   
 }
 
 @media only screen and (min-width: nth($media-breaking-points, 4)) {
-   
 }
 
-@mixin noStyleLink {
-    text-decoration: inherit;
-    color: inherit;
-    cursor: auto;
+@mixin anchor {
+    text-decoration: none;
+    color: #000;
+    //padding-left: 1.9em;
+}
+
+@mixin standardLinkHover {
+    color: $linkGreen;
+    cursor: pointer;
+    text-decoration: underline solid $linkGreen;
+
+    p {
+        color: $linkGreen;
+    }
+}
+
+a.editProfileActive {
+    display: none;
+}
+
+div.editProfileActive {
+    display: inline;
+}
+
+span.editProfileActive {
+    display: none;
+}
+
+
+div.editProfileInactive {
+    display: none;
+}
+
+a.editProfileInactive {
+    display: inline;
+}
+
+span.editProfileInactive {
+    display: inline;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.validation-summary-valid {
+    display: none;
 }
 
 .containerWrapper {
@@ -303,19 +355,15 @@ ul.navbar-nav {
         }
 
         .ReviewContainer {
-            color: $font-color;
+            @include anchor;
             display: flex;
-            padding-left: 1.9em;
-            @include noStyleLink;
-            
+
+            a {
+                @include anchor;
+            }
 
             &:hover {
-                color: #000;
-                cursor: pointer;
-                text-decoration: underline solid $linkGreen;
-                p {
-                    color: $linkGreen;
-                }
+                @include standardLinkHover;
             }
 
             i {
@@ -333,5 +381,99 @@ ul.navbar-nav {
         width: 55%;
         border: 1px solid $softGray;
         padding: 0.5em;
+
+        p {
+            display: inline-block;
+        }
+
+        a {
+            @include anchor;
+
+            &:hover {
+                @include standardLinkHover;
+            }
+
+            color: $linkGreen;
+        }
+
+        div.ProfileInfoBlock {
+
+            #editProfileDiv {
+                /*display: none;*/
+                .saveEditProfileBtn {
+                    margin-top: 1rem;
+                }
+
+                .addLanguageRow {
+                    float: left;
+                }
+
+                .language {
+                    float: left;
+                    border: 1px dashed $softGray;
+                    margin-right: 0.56em;
+                }
+                /*.clearfix:after {
+                    content: ".";
+                    visibility: hidden;
+                    display: block;
+                    height: 0;
+                    clear: both;
+                }*/
+                div.languageModal {
+                    display: none; /* Hidden by default */
+                    position: fixed; /* Stay in place */
+                    z-index: 1; /* Sit on top */
+                    padding-top: 10em; /* Location of the box */
+                    left: 0;
+                    top: 0;
+                    width: 100%; /* Full width */
+                    height: 100%; /* Full height */
+                    overflow: auto; /* Enable scroll if needed */
+                    background-color: rgb(0,0,0); /* Fallback color */
+                    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+                    .languageModalContent {
+                        overflow: hidden;
+                        background-color: #fefefe;
+                        margin: auto;
+                        padding: 20px;
+                        border: 1px solid #888;
+                        width: 40%;
+
+                        h2 {
+                            text-align: center;
+                        }
+
+                        .langCheckboxes {
+                            margin-left: 40%;
+                            margin-top: 4%;
+                        }
+
+                        .close {
+                            color: #aaaaaa;
+                            float: right;
+                            font-size: 28px;
+                            font-weight: bold;
+                        }
+
+                        .close:hover,
+                        .close:focus {
+                            color: #000;
+                            text-decoration: none;
+                            cursor: pointer;
+                        }
+
+                        .finishedBtn {
+                            float: right;
+                        }
+                    }
+                }
+            }
+        }
+
+        div.listingBlock {
+            float: left;
+            width: 100%;
+        }
     }
 }

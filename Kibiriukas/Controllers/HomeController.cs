@@ -16,7 +16,7 @@ namespace Kibiriukas.Controllers
         [Route("Index")]
         public ActionResult Index()
         {
-            return View();
+            return View("Index");
         }
         [Route("About")]
         public ActionResult About()

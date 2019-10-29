@@ -1,0 +1,8 @@
+﻿@model Kibiriukas.Models.UserLanguage
+
+<div class="language langCheckbox_@Model.language.LanguageId">
+    @Html.HiddenFor(x => x.UserLanguageId)
+    @Html.DisplayFor(x => x.language.LanguageString)
+    @Html.HiddenFor(x => x.LanguageId)
+    <a href="#" class="deleteLanguageRow">delete</a>
+</div>

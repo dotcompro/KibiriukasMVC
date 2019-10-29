@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace Kibiriukas.Models
 {
@@ -20,6 +18,7 @@ namespace Kibiriukas.Models
         public string StreetName { get; set; }
         public string StreetName2 { get; set; }
         public string PostCode { get; set; }
+        [DisplayName("City")]
         public string City { get; set; }
         public string Country { get; set; }
         public string HouseNumber { get; set; }
@@ -28,9 +27,11 @@ namespace Kibiriukas.Models
         public DateTime UserCreated { get; set; }
         public ICollection<Review> OwnReviews { get; set; }
         public ICollection<Review> WrittenReviews { get; set; }
+        [DisplayName("About")]
+        [StringLength(200, MinimumLength = 30, ErrorMessage = "Self introduction cannot be longer than 200 characters and less than 30 characters")]
         public string SelfIntroduction { get; set; }
-        public ICollection<UserLanguage> Languages { get; set; }
-
+        [DisplayName("Languages I speak")]
+        public List<UserLanguage> UserLanguages { get; set; }
         public User()
         {
             UserCreated = DateTime.Now;

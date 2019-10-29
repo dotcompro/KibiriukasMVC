@@ -1,0 +1,22 @@
+﻿@model Kibiriukas.ViewModels.ProfileViewModel
+<div class="languageModal">
+    <div class="languageModalContent">
+        <span class="close">&times;</span>
+        <h2>Languages I speak</h2>
+        <center>We have internation platform users, who could use your language skills.</center>
+        <div class="langCheckboxes">
+            @foreach (Kibiriukas.Models.Language lang in Model.languages)
+            {
+                if (Model.user.UserLanguages.Where(x => x.LanguageId == lang.LanguageId).Any())
+                {
+                    <input id="langCheckbox_@lang.LanguageId" class="langCheckbox" type="checkbox" value="@lang.LanguageString" checked="checked" /> @lang.LanguageString<br />
+                }
+                else
+                {
+                    <input id="langCheckbox_@lang.LanguageId" class="langCheckbox" type="checkbox" value="@lang.LanguageString" /> @lang.LanguageString<br />
+                }
+            }
+        </div>
+        <input type="button" class="finishedBtn" value="Finished" />
+    </div>
+</div>
